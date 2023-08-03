@@ -74,10 +74,9 @@ export default class ViewabilityTracker {
         this._windowBound = isHorizontal ? dimension.width : dimension.height;
     }
 
-    public forceRefresh(): boolean {
-        const shouldForceScroll = this._actualOffset >= 0 && this._currentOffset >= (this._maxOffset - this._windowBound);
+    public forceRefresh(shouldForceScroll: boolean = false): boolean {
         this.forceRefreshWithOffset(this._currentOffset);
-        return shouldForceScroll;
+        return shouldForceScroll || this._currentOffset >= (this._maxOffset - this._windowBound);
     }
 
     public forceRefreshWithOffset(offset: number): void {
@@ -146,7 +145,7 @@ export default class ViewabilityTracker {
         return this._renderAheadOffset;
     }
     public setActualOffset(actualOffset: number): void {
-       this._actualOffset = actualOffset;
+        this._actualOffset = actualOffset;
     }
 
     private _findFirstVisibleIndexOptimally(): number {
@@ -235,10 +234,10 @@ export default class ViewabilityTracker {
     }
 
     private _checkIntersectionAndReport(index: number,
-                                        insertOnTop: boolean,
-                                        relevantDim: Range,
-                                        newVisibleIndexes: number[],
-                                        newEngagedIndexes: number[]): boolean {
+        insertOnTop: boolean,
+        relevantDim: Range,
+        newVisibleIndexes: number[],
+        newEngagedIndexes: number[]): boolean {
         const itemRect = this._layouts[index];
         let isFound = false;
         this._setRelevantBounds(itemRect, relevantDim);

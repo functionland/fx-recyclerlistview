@@ -54,9 +54,9 @@ export default class VirtualRenderer {
     private _optimizeForAnimations: boolean = false;
 
     constructor(renderStackChanged: (renderStack: RenderStack) => void,
-                scrollOnNextUpdate: (point: Point) => void,
-                fetchStableId: StableIdProvider,
-                isRecyclingEnabled: boolean) {
+        scrollOnNextUpdate: (point: Point) => void,
+        fetchStableId: StableIdProvider,
+        isRecyclingEnabled: boolean) {
         //Keeps track of items that need to be rendered in the next render cycle
         this._renderStack = {};
 
@@ -159,10 +159,10 @@ export default class VirtualRenderer {
         }
     }
 
-    public refresh(): void {
+    public refresh(shouldForceScroll: boolean = false): void {
         if (this._viewabilityTracker) {
             this._prepareViewabilityTracker();
-            this._viewabilityTracker.forceRefresh();
+            this._viewabilityTracker.forceRefresh(shouldForceScroll);
         }
     }
 
@@ -207,8 +207,8 @@ export default class VirtualRenderer {
     }
 
     public syncAndGetKey(index: number, overrideStableIdProvider?: StableIdProvider,
-                         newRenderStack?: RenderStack,
-                         keyToStableIdMap?: { [key: string]: string } ): string {
+        newRenderStack?: RenderStack,
+        keyToStableIdMap?: { [key: string]: string }): string {
         const getStableId = overrideStableIdProvider ? overrideStableIdProvider : this._fetchStableId;
         const renderStack = newRenderStack ? newRenderStack : this._renderStack;
         const stableIdItem = this._stableIdToRenderKeyMap[getStableId(index)];
