@@ -43,7 +43,7 @@ export default class StickyHeader<P extends StickyObjectProps> extends StickyObj
                     this.currentIndex = valueAndIndex.index;
                     this.currentStickyIndex = valueAndIndex.value;
                 } else {
-                    console.log("Header sticky index calculation gone wrong."); //tslint:disable-line
+                    // console.log("Header sticky index calculation gone wrong."); //tslint:disable-line
                 }
             }
         }

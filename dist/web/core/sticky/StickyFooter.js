@@ -57,7 +57,7 @@ var StickyFooter = /** @class */ (function (_super) {
                     this.currentStickyIndex = valueAndIndex.value;
                 }
                 else {
-                    console.log("Footer sticky index calculation gone wrong."); //tslint:disable-line
+                    // console.log("Footer sticky index calculation gone wrong."); //tslint:disable-line
                 }
             }
         }

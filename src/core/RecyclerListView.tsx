@@ -85,10 +85,10 @@ export interface RecyclerListViewProps {
     isHorizontal?: boolean;
     onScroll?: (rawEvent: ScrollEvent, offsetX: number, offsetY: number) => void;
     onRecreate?: (params: OnRecreateParams) => void;
-    onStartReached?: () => void;
+    onStartReached?: () => Promise<void>;
     onStartReachedThreshold?: number;
     onStartReachedThresholdRelative?: number;
-    onEndReached?: () => void;
+    onEndReached?: () => Promise<void>;
     onEndReachedThreshold?: number;
     onEndReachedThresholdRelative?: number;
     onVisibleIndexesChanged?: TOnItemStatusChanged;
