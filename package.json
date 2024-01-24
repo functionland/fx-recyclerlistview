@@ -1,5 +1,5 @@
 {
-  "name": "recyclerlistview",
+  "name": "fx-recyclerlistview",
   "version": "4.2.0",
   "description": "The listview that you need and deserve. It was built for performance, uses cell recycling to achieve smooth scrolling.",
   "main": "dist/reactnative/index.js",
@@ -25,14 +25,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Flipkart/recyclerlistview"
+    "url": "https://github.com/functionland/fx-recyclerlistview"
   },
-  "author": "naqvitalha <naqvitalha@gmail.com>",
+  "author": "Functionland <hi@fx.land>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/Flipkart/recyclerlistview/issues"
+    "url": "https://github.com/functionland/fx-recyclerlistview/issues"
   },
-  "homepage": "https://github.com/Flipkart/recyclerlistview",
+  "homepage": "https://github.com/functionland/fx-recyclerlistview",
   "dependencies": {
     "lodash.debounce": "4.0.8",
     "prop-types": "15.8.1",
