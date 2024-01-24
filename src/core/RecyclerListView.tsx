@@ -112,6 +112,7 @@ export interface RecyclerListViewProps {
     scrollViewProps?: object;
     applyWindowCorrection?: (offsetX: number, offsetY: number, windowCorrection: WindowCorrection) => void;
     onItemLayout?: (index: number) => void;
+    stopRenderingOnAnimation?: any; // for now it is a SharedValue
     windowCorrectionConfig?: { value?: WindowCorrection, applyToInitialOffset?: boolean, applyToItemScroll?: boolean };
 
     //This can lead to inconsistent behavior. Use with caution.
