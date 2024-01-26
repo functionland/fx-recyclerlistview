@@ -16,29 +16,29 @@ export default class ViewRenderer extends BaseViewRenderer<any> {
     private _layoutManagerRef?: LayoutManager;
     public renderCompat(): JSX.Element {
         const props = this.props.forceNonDeterministicRendering
-          ? {
-              ref: this._setRef,
-              onLayout: this._onLayout,
-              style: {
-                flexDirection: this.props.isHorizontal ? "column" : "row",
-                left: this.props.x,
-                position: "absolute",
-                top: this.props.y,
-                ...this.props.styleOverrides,
-                ...this.animatorStyleOverrides,
-              },
+            ? {
+                ref: this._setRef,
+                onLayout: this._onLayout,
+                style: {
+                    flexDirection: this.props.isHorizontal ? "column" : "row",
+                    left: this.props.x,
+                    position: "absolute",
+                    top: this.props.y,
+                    ...this.props.styleOverrides,
+                    ...this.animatorStyleOverrides,
+                },
             }
-          : {
-              ref: this._setRef,
-              style: {
-                left: this.props.x,
-                position: "absolute",
-                top: this.props.y,
-                height: this.props.height,
-                width: this.props.width,
-                ...this.props.styleOverrides,
-                ...this.animatorStyleOverrides,
-              },
+            : {
+                ref: this._setRef,
+                style: {
+                    left: this.props.x,
+                    position: "absolute",
+                    top: this.props.y,
+                    height: this.props.height,
+                    width: this.props.width,
+                    ...this.props.styleOverrides,
+                    ...this.animatorStyleOverrides,
+                },
             };
         return this._renderItemContainer(props, this.props, this.renderChild()) as JSX.Element;
     }
@@ -72,7 +72,7 @@ export default class ViewRenderer extends BaseViewRenderer<any> {
         this._viewRef = view;
     }
 
-    private _onLayout = (event: LayoutChangeEvent): void => {
+    private _onLayout = (event: any): void => {
         //Preventing layout thrashing in super fast scrolls where RN messes up onLayout event
         const xDiff = Math.abs(this.props.x - event.nativeEvent.layout.x);
         const yDiff = Math.abs(this.props.y - event.nativeEvent.layout.y);
@@ -96,7 +96,7 @@ export default class ViewRenderer extends BaseViewRenderer<any> {
         if (!this.props.forceNonDeterministicRendering) {
             return;
         }
-        const oldDim = {...this._dim};
+        const oldDim = { ...this._dim };
         setTimeout(() => {
             this._forceSizeUpdate(oldDim);
         }, 32);

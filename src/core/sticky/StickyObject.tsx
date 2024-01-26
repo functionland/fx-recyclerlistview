@@ -80,11 +80,22 @@ export default abstract class StickyObject<P extends StickyObjectProps> extends 
 
     public renderCompat(): JSX.Element | null {
         // Add the container style if renderContainer is undefined
-
-        const containerStyle = [{ transform: [{ translateY: this._stickyViewOffset }] },
-            (!this.props.renderContainer && [{ position: "absolute", width: this._scrollableWidth }, this.containerPosition])];
+        let containerStyle: Animated.Animated = { transform: [{ translateY: this._stickyViewOffset }] };
+        if (!this.props.renderContainer) {
+            containerStyle = {
+                ...containerStyle,
+                ...[
+                    {
+                        position: "absolute",
+                        width: this._scrollableWidth,
+                    },
+                    this.containerPosition,
+                ],
+            };
+        }
 
         const content = (
+            //@ts-ignore
             <Animated.View style={containerStyle}>
                 {this.stickyVisiblity ? this._renderSticky() : null}
             </Animated.View>

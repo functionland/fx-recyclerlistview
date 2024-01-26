@@ -48,7 +48,7 @@ export default class StickyFooter<P extends StickyFooterProps> extends StickyObj
                     this.currentIndex = valueAndIndex.index;
                     this.currentStickyIndex = valueAndIndex.value;
                 } else {
-                    console.log("Footer sticky index calculation gone wrong."); //tslint:disable-line
+                    // console.log("Footer sticky index calculation gone wrong."); //tslint:disable-line
                 }
             }
         }

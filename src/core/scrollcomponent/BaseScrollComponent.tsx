@@ -5,11 +5,13 @@ import BaseScrollView, { ScrollEvent, ScrollViewDefaultProps } from "./BaseScrol
 export interface ScrollComponentProps {
     onSizeChanged: (dimensions: Dimension) => void;
     onScroll: (offsetX: number, offsetY: number, rawEvent: ScrollEvent) => void;
+    onWindowResize: (dimensions: Dimension) => void;
     contentHeight: number;
     contentWidth: number;
     canChangeSize?: boolean;
     externalScrollView?: { new(props: ScrollViewDefaultProps): BaseScrollView };
     isHorizontal?: boolean;
+    renderHeader?: () => JSX.Element | JSX.Element[] | null;
     renderFooter?: () => JSX.Element | JSX.Element[] | null;
     scrollThrottle?: number;
     useWindowScroll?: boolean;
