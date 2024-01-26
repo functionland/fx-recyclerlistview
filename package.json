@@ -1,5 +1,5 @@
 {
-  "name": "fx-recyclerlistview",
+  "name": "@functionland/recyclerlistview",
   "version": "4.2.2",
   "description": "The listview that you need and deserve. It was built for performance, uses cell recycling to achieve smooth scrolling.",
   "main": "dist/reactnative/index.js",

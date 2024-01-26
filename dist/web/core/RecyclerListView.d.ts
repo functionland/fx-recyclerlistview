@@ -68,6 +68,7 @@ export interface RecyclerListViewProps {
     scrollViewProps?: object;
     applyWindowCorrection?: (offsetX: number, offsetY: number, windowCorrection: WindowCorrection) => void;
     onItemLayout?: (index: number) => void;
+    stopRenderingOnAnimation?: any;
     windowCorrectionConfig?: {
         value?: WindowCorrection;
         applyToInitialOffset?: boolean;

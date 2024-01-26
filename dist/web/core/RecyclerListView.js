@@ -194,6 +194,9 @@ var RecyclerListView = /** @class */ (function (_super) {
         _this._onScroll = function (offsetX, offsetY, rawEvent) {
             // correction to be positive to shift offset upwards; negative to push offset downwards.
             // extracting the correction value from logical offset and updating offset of virtual renderer.
+            if (_this.props.stopRenderingOnAnimation && _this.props.stopRenderingOnAnimation.value) {
+                return;
+            }
             _this._virtualRenderer.updateOffset(offsetX, offsetY, true, _this._getWindowCorrection(offsetX, offsetY, _this.props));
             if (_this.props.onScroll) {
                 _this.props.onScroll(rawEvent, offsetX, offsetY);

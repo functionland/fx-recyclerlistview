@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseItemAnimator = void 0;
-var BaseItemAnimator = exports.BaseItemAnimator = /** @class */ (function () {
+var BaseItemAnimator = /** @class */ (function () {
     function BaseItemAnimator() {
     }
     BaseItemAnimator.prototype.animateWillMount = function (atX, atY, itemIndex) {
@@ -22,4 +22,5 @@ var BaseItemAnimator = exports.BaseItemAnimator = /** @class */ (function () {
     BaseItemAnimator.USE_NATIVE_DRIVER = false;
     return BaseItemAnimator;
 }());
+exports.BaseItemAnimator = BaseItemAnimator;
 //# sourceMappingURL=ItemAnimator.js.map

@@ -137,7 +137,7 @@ var ScrollComponent = /** @class */ (function (_super) {
     ScrollComponent.defaultProps = {
         contentHeight: 0,
         contentWidth: 0,
-        externalScrollView: TSCast_1.default.cast(react_native_1.ScrollView),
+        externalScrollView: TSCast_1.default.cast(react_native_1.ScrollView), //TSI
         isHorizontal: false,
         scrollThrottle: 16,
     };
