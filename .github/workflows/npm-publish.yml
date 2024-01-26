@@ -25,6 +25,7 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
       - run: npm ci
+      - run: npm install bob
       - run: npm install
       - run: npm run build
       - run: npm publish --scope=@functionland --access=public
