@@ -66,7 +66,7 @@ export default class StickyContainer<P extends StickyContainerProps> extends Com
         this._assertChildType();
         const recycler: ReactElement<RecyclerListViewProps> = React.cloneElement(this.props.children, {
             ...this.props.children.props,
-            ref: this._getRecyclerRef,
+            key: 'recycler',
             onVisibleIndicesChanged: this._onVisibleIndicesChanged,
             onScroll: this._onScroll,
             applyWindowCorrection: this._applyWindowCorrection,
@@ -74,7 +74,6 @@ export default class StickyContainer<P extends StickyContainerProps> extends Com
         });
         return (
             <View style={this.props.style ? this.props.style : { flex: 1 }}>
-                {recycler}
                 {this.props.stickyHeaderIndices ? (
                     <StickyHeader ref={(stickyHeaderRef: any) => this._getStickyHeaderRef(stickyHeaderRef)}
                         stickyIndices={this.props.stickyHeaderIndices}
@@ -196,10 +195,9 @@ export default class StickyContainer<P extends StickyContainerProps> extends Com
     }
 
     private _isChildRecyclerInstance = (): boolean => {
-        return (
-            this.props.children.props.dataProvider
-            && this.props.children.props.rowRenderer
-            && this.props.children.props.layoutProvider
+        return !!(
+            this.props.children.props.dataProvider &&
+            this.props.children.props.layoutProvider
         );
     }
 

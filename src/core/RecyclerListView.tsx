@@ -402,12 +402,12 @@ export default class RecyclerListView<P extends RecyclerListViewProps, S extends
         return null;
     }
 
-    public getNativeScrollRef(): ScrollView | null {
+    /******************public getNativeScrollRef(): ScrollView | null {
         if (this._scrollComponent && this._scrollComponent.getNativeScrollRef) {
           return this._scrollComponent.getNativeScrollRef();
         }
         return null;
-    }
+    }*********************/
 
     public getNativeScrollRef(): ScrollView | null {
         if (this._scrollComponent && this._scrollComponent.getNativeScrollRef) {

@@ -19,10 +19,10 @@ import debounce = require("lodash.debounce");
  */
 
 export default class ScrollComponent extends BaseScrollComponent {
-    public static defaultProps = {
+    public static defaultProps: Partial<ScrollComponentProps> = {
         contentHeight: 0,
         contentWidth: 0,
-        externalScrollView: TSCast.cast(ScrollView), //TSI
+        externalScrollView: TSCast.cast(ScrollView),
         isHorizontal: false,
         scrollThrottle: 16,
     };

@@ -10,7 +10,7 @@ import ScrollViewer from "./ScrollViewer";
  */
 
 export default class ScrollComponent extends BaseScrollComponent {
-    public static defaultProps = {
+    public static defaultProps: Partial<ScrollComponentProps> = {
         contentHeight: 0,
         contentWidth: 0,
         externalScrollView: ScrollViewer,

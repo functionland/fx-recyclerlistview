@@ -3,6 +3,7 @@ import { CSSProperties } from "react";
 import { Dimension } from "../dependencies/LayoutProvider";
 
 export interface ScrollViewDefaultProps {
+    children?: React.ReactNode;
     onScroll: (event: ScrollEvent) => void;
     onSizeChanged: (dimensions: Dimension) => void;
     horizontal: boolean;

@@ -4,6 +4,7 @@ import { Dimension } from "../dependencies/LayoutProvider";
 import BaseScrollView, { ScrollEvent, ScrollViewDefaultProps } from "./BaseScrollView";
 
 export interface ScrollComponentProps {
+    children?: React.ReactNode;
     onSizeChanged: (dimensions: Dimension) => void;
     onScroll: (offsetX: number, offsetY: number, rawEvent: ScrollEvent) => void;
     onWindowResize: (dimensions: Dimension) => void;
