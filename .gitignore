@@ -47,3 +47,4 @@ node_modules/
 #npm release config
 .npmrc
 dist/*
+.history/*
